@@ -1,0 +1,348 @@
+@import '_partials/mod_dir';
+
+body {
+  font-family: 'Lato', sans-serif;
+  // background: $ice-blue;
+  background: $charcoal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}
+
+.container {
+  margin: auto;
+  width: 70%;
+}
+
+#change-location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid $light-grey;
+
+  .container {
+    display: grid;
+    grid-template-columns: 3fr 6fr;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  h2 {
+    margin-right: auto;
+    color: $white;
+  }
+  form {
+    // text-align: right;
+    margin-left: auto;
+    padding: 0.5rem 0.75rem;
+
+    input {
+      transition: all 0.3s ease;
+      padding: 0.75rem;
+      font-size: 1rem;
+      display: inline-block;
+      margin: 0;
+      border: 1px solid $light-grey;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    #zipcode-input {
+      border-radius: 25px;
+      max-width: 250px;
+      width: 250px;
+    }
+
+    #zipcode-submit-btn {
+      background: $teal;
+      border-radius: 25px;
+      cursor: pointer;
+      border: none;
+    }
+
+    #zipcode-submit-btn:hover {
+      color: $white;
+      background: $violet;
+    }
+  }
+}
+
+.content-grid {
+  width: 100%;
+  height: 75vh;
+  display: grid;
+  //   grid-template-columns: repeat(2, 2fr);
+  grid-template-columns: 2fr 6fr;
+}
+
+.main-content {
+  text-align: center;
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $light-grey;
+
+  .weather-content {
+    color: $white;
+    h1 {
+      color: $teal;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    img {
+      display: block;
+      margin: auto;
+      text-align: center;
+      // margin-bottom: 1rem;
+      height: 100px;
+      width: 100px;
+    }
+
+    h2 {
+      font-size: 3rem;
+      display: inline-block;
+      // margin-bottom: 1rem;
+    }
+
+    h2 + span {
+      display: inline-block;
+      font-size: 2.5rem;
+      vertical-align: top;
+      // padding-left: 0.125rem;
+      font-weight: 900;
+    }
+  }
+}
+
+#current-weather-details {
+  ul {
+    padding: 1rem 0;
+    margin: 0 auto;
+    text-align: center;
+    li {
+      color: $dark-white;
+      display: inline-block;
+      padding: 0.5rem 0.75rem;
+
+      p {
+        display: inline;
+      }
+    }
+  }
+}
+
+#upcoming-forecast {
+  .upcoming-weather-forecast-list {
+    border: 1px solid $light-grey;
+    color: $dark-white;
+    .up-w-f-group:not(:last-child) {
+      border-bottom: 1px solid $light-grey;
+    }
+    .up-w-f-group {
+      display: grid;
+      grid-template-columns: 0.75fr 0.75fr 3fr 0.5fr 0.5fr;
+      text-align: left;
+      padding: 0.5rem 0.5rem;
+      .up-w-f-day,
+      .up-w-f-icon,
+      .up-w-f-temperatureHigh,
+      .up-w-f-temperatureLow,
+      .up-w-f-summary {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .up-w-f-day {
+        margin-right: auto;
+        text-align: left;
+      }
+
+      .up-w-f-icon {
+        width: 48px;
+        height: 48px;
+        margin: auto;
+      }
+
+      .up-w-f-temperatureHigh,
+      .up-w-f-temperatureLow {
+        text-align: center;
+      }
+      .up-w-f-temperatureHigh {
+        font-size: 1.1rem;
+      }
+      .up-w-f-temperatureLow {
+        font-size: 0.9rem;
+        color: $dark-white;
+      }
+
+      .up-w-f-summary {
+        text-align: left;
+        padding-left: 0.5rem;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+#modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // display: none;
+  visibility: hidden;
+
+  .modal-content {
+    text-align: center;
+    color: $charcoal;
+    width: 40%;
+    max-width: 500px;
+    background: $white;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.85);
+
+    .modal-header {
+      padding: 1.25rem;
+      border-bottom: 1px solid black;
+
+      h2 {
+        font-size: 2.125rem;
+      }
+    }
+
+    .modal-body {
+      padding: 1.25rem;
+      text-align: left;
+      p {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  // position: absolute;
+  // bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: $teal;
+
+  a {
+    transition: all 0.3s ease;
+    color: $charcoal;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $violet;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 425px) {
+  .container {
+    width: 95%;
+  }
+  #change-location {
+    .container {
+      padding: 0.5rem;
+      display: grid !important;
+      grid-template-columns: none;
+    }
+    height: 100%;
+    h2 {
+      text-align: center;
+      width: 100%;
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+    }
+    form {
+      padding: 0;
+      display: block;
+      // display: flex;
+      input {
+        display: block;
+        padding: 0.5rem;
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .main-content {
+    height: 30vh;
+    .weather-content {
+      #location-title {
+        font-size: 1.75rem;
+      }
+
+      #location-title,
+      #date,
+      #weather-icon,
+      #weather-desc {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  #upcoming-forecast {
+    .upcoming-weather-forecast-list {
+      .up-w-f-group {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        .up-w-f-day {
+          font-size: 1rem;
+        }
+        .up-w-f-summary {
+          display: none;
+          font-size: 0.75rem;
+        }
+
+        .up-w-f-temperatureHigh {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}
