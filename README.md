@@ -1,4 +1,4 @@
-# JavaScript Wheather App
+# JavaScript Weather App
 A wheater app using HTML, SCSS, and JavaScript. Try it out yourself!
 
 ## About
